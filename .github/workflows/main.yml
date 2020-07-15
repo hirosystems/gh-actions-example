@@ -1,4 +1,4 @@
-name: app.co
+name: main
 env:
   IMAGE_NAME: test/test
 
