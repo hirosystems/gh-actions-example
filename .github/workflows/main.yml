@@ -12,12 +12,6 @@ jobs:
 
       - name: Action For Semantic Release
         uses: cycjimmy/semantic-release-action@v2.5.0
-        with:
-          # You can specify specifying version range for the extra plugins if you prefer.
-          extra_plugins: |
-            @semantic-release/commit-analyzer
-            @semantic-release/release-notes-generator
-            @semantic-release/github
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
