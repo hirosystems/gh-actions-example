@@ -1,0 +1,29 @@
+name: app.co
+env:
+  IMAGE_NAME: test/test
+
+on: [push, pull_request]
+
+jobs:
+  build-publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Action For Semantic Release
+        uses: cycjimmy/semantic-release-action@v2.5.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build/Tag/Push Image
+        uses: docker/build-push-action@v1
+        with:
+          repository: ${{ env.IMAGE_NAME }}
+          username: ${{ secrets.QUAY_USERNAME }}
+          password: ${{ secrets.QUAY_PASSWORD }}
+          registry: quay.io
+          tags: ${{ env.RELEASE_VERSION }}
+          tag_with_ref: true
+          tag_with_sha: false
+          add_git_labels: true
+          push: false
