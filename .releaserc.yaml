@@ -2,6 +2,7 @@ plugins:
   - "@semantic-release/commit-analyzer"
   - "@semantic-release/release-notes-generator"
   - "@semantic-release/github"
-  - - semantic-release-docker
-    - name: blockstack/gh-actions-test
-    - registryUrl: quay.io
+  - semantic-release-docker
+publish:
+  - name: blockstack/gh-actions-test
+    registryUrl: quay.io
