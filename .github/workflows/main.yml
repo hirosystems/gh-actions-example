@@ -29,8 +29,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           DOCKER_USERNAME: ${{ secrets.QUAY_USERNAME }}
           DOCKER_PASSWORD: ${{ secrets.QUAY_PASSWORD }}
-        with:
-          extra_plugins: |
-            @semantic-release-docker
-              - name: ${{ env.IMAGE_NAME }}
-              - registryUrl: ${{ env.DOCKER_REGISTRY }}
+        # with:
+        #   extra_plugins: |
+        #     @semantic-release-docker
+        #       - name: ${{ env.IMAGE_NAME }}
+        #       - registryUrl: ${{ env.DOCKER_REGISTRY }}
