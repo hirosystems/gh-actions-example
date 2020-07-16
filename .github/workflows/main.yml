@@ -1,6 +1,7 @@
 name: main
 env:
-  IMAGE_NAME: test/test
+  IMAGE_NAME: blockstack/gh-actions-test
+  DOCKER_REGISTRY: quay.io
 
 on: [push, pull_request]
 
@@ -10,20 +11,26 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Action For Semantic Release
-        uses: cycjimmy/semantic-release-action@v2.5.0
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Build/Tag/Push Image
+      - name: Build Image
         uses: docker/build-push-action@v1
         with:
           repository: ${{ env.IMAGE_NAME }}
           username: ${{ secrets.QUAY_USERNAME }}
           password: ${{ secrets.QUAY_PASSWORD }}
-          registry: quay.io
-          tags: ${{ env.RELEASE_VERSION }}
+          registry: ${{ env.DOCKER_REGISTRY }}
           tag_with_ref: true
           tag_with_sha: false
           add_git_labels: true
           push: false
+
+      - name: Action For Semantic Release
+        uses: cycjimmy/semantic-release-action@v2.5.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          DOCKER_USERNAME: ${{ secrets.QUAY_USERNAME }}
+          DOCKER_PASSWORD: ${{ secrets.QUAY_PASSWORD }}
+        with:
+          extra_plugins: |
+            @semantic-release-docker
+              - name: ${{ env.IMAGE_NAME }}
+              - registryUrl: ${{ env.DOCKER_REGISTRY }}
