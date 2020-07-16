@@ -25,6 +25,7 @@ jobs:
         with:
           extra_plugins: |
             @semantic-release/changelog
+            @semantic-release/git
 
       - name: Tag and Push Image
         uses: docker/build-push-action@v1
