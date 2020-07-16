@@ -22,10 +22,12 @@ jobs:
         id: semantic
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
         with:
           extra_plugins: |
             @semantic-release/changelog
             @semantic-release/git
+            semantic-release-slack-bot
 
       - name: Tag and Push Image
         uses: docker/build-push-action@v1
