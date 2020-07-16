@@ -26,11 +26,13 @@ jobs:
 
       - name: Tag and Push Image
         uses: docker/build-push-action@v1
+        if: steps.semantic.outputs.new_release_published == 'true'
         with:
           repository: ${{ env.IMAGE_NAME }}
           username: ${{ secrets.QUAY_USERNAME }}
           password: ${{ secrets.QUAY_PASSWORD }}
           registry: ${{ env.DOCKER_REGISTRY }}
           tags: ${{ steps.semantic.outputs.new_release_version }}
+          tag_with_ref: true
           add_git_labels: true
           push: false
