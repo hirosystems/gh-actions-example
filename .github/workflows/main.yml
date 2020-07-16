@@ -31,6 +31,6 @@ jobs:
           DOCKER_PASSWORD: ${{ secrets.QUAY_PASSWORD }}
         with:
           extra_plugins: |
-            @semantic-release-docker
+            semantic-release-docker
         #       - name: ${{ env.IMAGE_NAME }}
         #       - registryUrl: ${{ env.DOCKER_REGISTRY }}
