@@ -11,11 +11,16 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Build Image
-        uses: docker/build-push-action@v1
+      - name: Notify slack start
+        if: success()
+        id: slack
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+        uses: voxmedia/github-action-slack-notify-build@v1.1.2
         with:
-          repository: ${{ env.IMAGE_NAME }}
-          push: false
+          channel: devops-notify
+          status: STARTING
+          color: warning
 
       - name: Semantic Release
         uses: cycjimmy/semantic-release-action@v2.5.0
@@ -30,9 +35,8 @@ jobs:
             @semantic-release/git
             semantic-release-slack-bot
 
-      - name: Tag and Push Image
+      - name: Build/Tag/Push Image
         uses: docker/build-push-action@v1
-        if: steps.semantic.outputs.new_release_published == 'true'
         with:
           repository: ${{ env.IMAGE_NAME }}
           username: ${{ secrets.QUAY_USERNAME }}
@@ -41,4 +45,27 @@ jobs:
           tags: ${{ steps.semantic.outputs.new_release_version }}
           tag_with_ref: true
           add_git_labels: true
+          # Set to true to push image
           push: false
+
+      - name: Notify slack success
+        if: success()
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+        uses: voxmedia/github-action-slack-notify-build@v1.1.2
+        with:
+          message_id: ${{ steps.slack.outputs.message_id }}
+          channel: devops-notify
+          status: SUCCESS
+          color: good
+
+      - name: Notify slack fail
+        if: failure()
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+        uses: voxmedia/github-action-slack-notify-build@v1.1.2
+        with:
+          message_id: ${{ steps.slack.outputs.message_id }}
+          channel: devops-notify
+          status: FAILED
+          color: danger
