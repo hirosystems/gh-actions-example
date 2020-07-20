@@ -1,16 +1,23 @@
 name: main
+
+# Define any environment vars we want to use throughout the build process
+# Secret variables can be defined under the Github project's "Settings", which can be referrenced throughout this file as well
 env:
   IMAGE_NAME: blockstack/gh-actions-test
   DOCKER_REGISTRY: quay.io
 
+# Run on pushes and PRs to any branch
 on: [push, pull_request]
 
 jobs:
   build-publish:
     runs-on: ubuntu-latest
     steps:
+      # Checkouts the branch/commit pertaining to the triggered job
       - uses: actions/checkout@v2
 
+      # Notifies a Slack channel about this job starting
+      # Only runs if the previous action was successful
       - name: Notify slack start
         if: success()
         id: slack
@@ -22,6 +29,10 @@ jobs:
           status: STARTING
           color: warning
 
+      # Detects the branch being built. If master, will:
+      #   * Tag and release a new semantic version
+      #   * Generate release notes and post them in CHANGELOG.md and Slack
+      #   * If building a Node project, publish your module
       - name: Semantic Release
         uses: cycjimmy/semantic-release-action@v2.5.0
         id: semantic
@@ -35,6 +46,7 @@ jobs:
             @semantic-release/git
             semantic-release-slack-bot
 
+      # Builds the Docker image, tags it with the new semantic version created from the previous action, and publishes it to a registry
       - name: Build/Tag/Push Image
         uses: docker/build-push-action@v1
         with:
@@ -48,6 +60,8 @@ jobs:
           # Set to true to push image
           push: false
 
+      # Updates the first Slack message into a SUCCESSful message
+      # Only runs if the previous actions were successful
       - name: Notify slack success
         if: success()
         env:
@@ -59,6 +73,8 @@ jobs:
           status: SUCCESS
           color: good
 
+      # Updates the first Slack message into a FAILURE message
+      # Only runs if any of the previous actions failed
       - name: Notify slack fail
         if: failure()
         env:

@@ -1,3 +1,4 @@
+# This is just a dummy Dockerfile for demonstration purposes
 FROM alpine
 
 RUN apk add --no-cache --update \
