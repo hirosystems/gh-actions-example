@@ -36,7 +36,7 @@ In order to configure a Git repo with automatic semantic versioning, follow the 
     * If you see errors, resolve them then try re-installing.
     ```bash
     # If you use yarn
-    yarn add --save-dev husky @commitlint/{config-conventional,cli}
+    yarn add --dev husky @commitlint/{config-conventional,cli} --force
 
     # If you use npm
     npm install --save-dev husky @commitlint/{config-conventional,cli}
