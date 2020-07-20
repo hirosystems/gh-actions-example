@@ -1,3 +1,20 @@
+# [3.0.0](https://github.com/blockstackpbc/gh-actions-example/compare/v2.3.1...v3.0.0) (2020-07-20)
+
+
+### Bug Fixes
+
+* fix package.json syntax ([b006b8b](https://github.com/blockstackpbc/gh-actions-example/commit/b006b8ba7cd7d9a85e06d7045a84a0ab17cb4021))
+
+
+### Features
+
+* move releaserc contents to package.json ([3a2d222](https://github.com/blockstackpbc/gh-actions-example/commit/3a2d222ee4ca21df39b82c11474bf0021491828e))
+
+
+### BREAKING CHANGES
+
+* Another one
+
 ## [2.3.1](https://github.com/blockstackpbc/gh-actions-test/compare/v2.3.0...v2.3.1) (2020-07-16)
 
 
