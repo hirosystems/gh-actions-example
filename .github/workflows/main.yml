@@ -59,7 +59,7 @@ jobs:
           tag_with_ref: true
           add_git_labels: true
           # Set to true to push image
-          push: ${{ github.ref != 'refs/heads/master' || env.NEW_VERSION != '' }}
+          push: ${{ github.ref != 'refs/heads/master' || steps.semantic.outputs.new_release_version != '' }}
 
       # Updates the first Slack message into a SUCCESSful message
       # Only runs if the previous actions were successful
