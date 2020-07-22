@@ -1,3 +1,10 @@
+# [3.2.0-beta.1](https://github.com/blockstackpbc/gh-actions-example/compare/v3.1.1...v3.2.0-beta.1) (2020-07-22)
+
+
+### Features
+
+* adding new feature ([fba6e72](https://github.com/blockstackpbc/gh-actions-example/commit/fba6e72791c7d1ad2c311025e4ccd8a3917ee2a7))
+
 ## [3.1.1](https://github.com/blockstackpbc/gh-actions-example/compare/v3.1.0...v3.1.1) (2020-07-22)
 
 
