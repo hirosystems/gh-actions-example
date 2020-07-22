@@ -1,3 +1,10 @@
+# [3.1.0](https://github.com/blockstackpbc/gh-actions-example/compare/v3.0.0...v3.1.0) (2020-07-22)
+
+
+### Features
+
+* new release ([e6fcbf8](https://github.com/blockstackpbc/gh-actions-example/commit/e6fcbf8794d8f79066f2b1fc367fbf569896dd66))
+
 # [3.0.0](https://github.com/blockstackpbc/gh-actions-example/compare/v2.3.1...v3.0.0) (2020-07-20)
 
 
