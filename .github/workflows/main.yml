@@ -28,16 +28,16 @@ jobs:
 
       # Notifies a Slack channel about this job starting
       # Only runs if the previous action was successful
-      # - name: Notify slack start
-      #   if: success()
-      #   id: slack
-      #   env:
-      #     SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
-      #   uses: voxmedia/github-action-slack-notify-build@v1.1.2
-      #   with:
-      #     channel: devops-notify
-      #     status: STARTING
-      #     color: warning
+      - name: Notify slack start
+        if: success()
+        id: slack
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+        uses: voxmedia/github-action-slack-notify-build@v1.1.2
+        with:
+          channel: devops-notify
+          status: STARTING
+          color: warning
 
       # Detects the branch being built. If master, will:
       #   * Tag and release a new semantic version
@@ -58,41 +58,41 @@ jobs:
             semantic-release-slack-bot
 
       # Builds the Docker image, tags it with the new semantic version created from the previous action, and publishes it to a registry
-      # - name: Build/Tag/Push Image
-      #   uses: docker/build-push-action@v1
-      #   with:
-      #     repository: ${{ env.IMAGE_NAME }}
-      #     username: ${{ secrets.QUAY_USERNAME }}
-      #     password: ${{ secrets.QUAY_PASSWORD }}
-      #     registry: ${{ env.DOCKER_REGISTRY }}
-      #     tags: ${{ steps.semantic.outputs.new_release_version }}
-      #     tag_with_ref: true
-      #     add_git_labels: true
-      #     # Set to true to push image
-      #     push: ${{ github.ref != 'refs/heads/master' || steps.semantic.outputs.new_release_version != '' }}
+      - name: Build/Tag/Push Image
+        uses: docker/build-push-action@v1
+        with:
+          repository: ${{ env.IMAGE_NAME }}
+          username: ${{ secrets.QUAY_USERNAME }}
+          password: ${{ secrets.QUAY_PASSWORD }}
+          registry: ${{ env.DOCKER_REGISTRY }}
+          tags: ${{ steps.semantic.outputs.new_release_version }}
+          tag_with_ref: true
+          add_git_labels: true
+          # Set to true to push image
+          push: ${{ github.ref != 'refs/heads/master' || steps.semantic.outputs.new_release_version != '' }}
 
-      # # Updates the first Slack message into a SUCCESSful message
-      # # Only runs if the previous actions were successful
-      # - name: Notify slack success
-      #   if: success()
-      #   env:
-      #     SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
-      #   uses: voxmedia/github-action-slack-notify-build@v1.1.2
-      #   with:
-      #     message_id: ${{ steps.slack.outputs.message_id }}
-      #     channel: devops-notify
-      #     status: SUCCESS
-      #     color: good
+      # Updates the first Slack message into a SUCCESSful message
+      # Only runs if the previous actions were successful
+      - name: Notify slack success
+        if: success()
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+        uses: voxmedia/github-action-slack-notify-build@v1.1.2
+        with:
+          message_id: ${{ steps.slack.outputs.message_id }}
+          channel: devops-notify
+          status: SUCCESS
+          color: good
 
-      # # Updates the first Slack message into a FAILURE message
-      # # Only runs if any of the previous actions failed
-      # - name: Notify slack fail
-      #   if: failure()
-      #   env:
-      #     SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
-      #   uses: voxmedia/github-action-slack-notify-build@v1.1.2
-      #   with:
-      #     message_id: ${{ steps.slack.outputs.message_id }}
-      #     channel: devops-notify
-      #     status: FAILED
-      #     color: danger
+      # Updates the first Slack message into a FAILURE message
+      # Only runs if any of the previous actions failed
+      - name: Notify slack fail
+        if: failure()
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+        uses: voxmedia/github-action-slack-notify-build@v1.1.2
+        with:
+          message_id: ${{ steps.slack.outputs.message_id }}
+          channel: devops-notify
+          status: FAILED
+          color: danger
