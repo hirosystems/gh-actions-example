@@ -9,6 +9,8 @@ env:
 # Run on pushes and PRs to any branch
 on:
   push:
+    branches:
+      - '**'
     tags-ignore:
       - '**'
     paths-ignore:
