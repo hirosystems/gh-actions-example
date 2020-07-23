@@ -1,3 +1,10 @@
+## [3.2.7](https://github.com/blockstackpbc/gh-actions-example/compare/v3.2.6...v3.2.7) (2020-07-23)
+
+
+### Bug Fixes
+
+* change scope of token ([6b59c03](https://github.com/blockstackpbc/gh-actions-example/commit/6b59c03f6521bb403bdfeb72513807130c2c58d4))
+
 ## [3.2.6](https://github.com/blockstackpbc/gh-actions-example/compare/v3.2.5...v3.2.6) (2020-07-23)
 
 
