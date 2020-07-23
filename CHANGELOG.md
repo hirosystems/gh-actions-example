@@ -1,3 +1,10 @@
+## [3.2.12](https://github.com/blockstackpbc/gh-actions-example/compare/v3.2.11...v3.2.12) (2020-07-23)
+
+
+### Bug Fixes
+
+* test ([#6](https://github.com/blockstackpbc/gh-actions-example/issues/6)) ([6dd1437](https://github.com/blockstackpbc/gh-actions-example/commit/6dd1437654dcd0e3582f5117e170ad2b0fa3fb31))
+
 ## [3.2.11](https://github.com/blockstackpbc/gh-actions-example/compare/v3.2.10...v3.2.11) (2020-07-23)
 
 
