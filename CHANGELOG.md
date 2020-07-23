@@ -1,3 +1,10 @@
+## [3.2.13](https://github.com/blockstackpbc/gh-actions-example/compare/v3.2.12...v3.2.13) (2020-07-23)
+
+
+### Bug Fixes
+
+* add back protected branches ([2b2d5c7](https://github.com/blockstackpbc/gh-actions-example/commit/2b2d5c79629deb69bc82c2dfc4ec4e19b86085f1))
+
 ## [3.2.12](https://github.com/blockstackpbc/gh-actions-example/compare/v3.2.11...v3.2.12) (2020-07-23)
 
 
