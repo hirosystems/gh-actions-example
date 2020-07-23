@@ -7,11 +7,16 @@ env:
   DOCKER_REGISTRY: quay.io
 
 # Run on pushes and PRs to any branch
-on: [push, pull_request]
+on:
+  push:
+    tags-ignore:
+      - '*'
+    paths-ignore:
+      - '**/CHANGELOG.md'
+  pull_request:
 
 jobs:
   build-publish:
-    if: "!contains(github.event.head_commit.message, 'skip ci')"
     runs-on: ubuntu-latest
     steps:
       # Checkouts the branch/commit pertaining to the triggered job
