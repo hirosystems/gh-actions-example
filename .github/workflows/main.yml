@@ -42,9 +42,9 @@ jobs:
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
           SEMANTIC_RELEASE_PACKAGE: gh-actions-test
           GIT_AUTHOR_NAME: blockstack-devops
-          GIT_AUTHOR_EMAIL: devops@blockstack.com
+          GIT_AUTHOR_EMAIL: 45208873+blockstack-devops@users.noreply.github.com
           GIT_COMMITTER_NAME: blockstack-devops
-          GIT_COMMITTER_EMAIL: devops@blockstack.com
+          GIT_COMMITTER_EMAIL: 45208873+blockstack-devops@users.noreply.github.com
         with:
           # These plugins aren't packaged with semantic-release by default. So specify them here to ensure they get installed during this GH Action
           extra_plugins: |
