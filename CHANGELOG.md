@@ -1,3 +1,12 @@
+## [3.2.11](https://github.com/blockstackpbc/gh-actions-example/compare/v3.2.10...v3.2.11) (2020-07-23)
+
+
+### Bug Fixes
+
+* ignore all tags ([e525887](https://github.com/blockstackpbc/gh-actions-example/commit/e525887b9912934673630f1b588216b6e5a9df09))
+* ignore all tags ([7167b7a](https://github.com/blockstackpbc/gh-actions-example/commit/7167b7a68a18b61ee3f2ab841de6c028d98b5b99))
+* try different tag ignore ([0628ec8](https://github.com/blockstackpbc/gh-actions-example/commit/0628ec8f9ac623a1ab607b124353948e56ac2570))
+
 ## [3.2.10](https://github.com/blockstackpbc/gh-actions-example/compare/v3.2.9...v3.2.10) (2020-07-23)
 
 
