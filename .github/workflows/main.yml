@@ -10,7 +10,7 @@ env:
 on:
   push:
     tags-ignore:
-      - v*
+      - '**'
     paths-ignore:
       - '**/CHANGELOG.md'
   pull_request:
