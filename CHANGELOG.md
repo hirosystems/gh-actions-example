@@ -1,3 +1,11 @@
+## [3.2.4](https://github.com/blockstackpbc/gh-actions-example/compare/v3.2.3...v3.2.4) (2020-07-23)
+
+
+### Bug Fixes
+
+* change checkout token ([d54857c](https://github.com/blockstackpbc/gh-actions-example/commit/d54857c77799784b4f1b5626ccc1f9bc1cda620a))
+* use different token name ([3fa9af4](https://github.com/blockstackpbc/gh-actions-example/commit/3fa9af438318384c80f20f88a15a424adff3ede6))
+
 ## [3.2.2](https://github.com/blockstackpbc/gh-actions-example/compare/v3.2.1...v3.2.2) (2020-07-23)
 
 
