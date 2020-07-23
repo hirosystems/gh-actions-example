@@ -16,7 +16,7 @@ jobs:
       # Checkouts the branch/commit pertaining to the triggered job
       - uses: actions/checkout@v2
         with:
-          token: ${{ secrets.GH_ACTIONS_TOKEN }}
+          token: ${{ secrets.GH_TOKEN }}
 
       # Notifies a Slack channel about this job starting
       # Only runs if the previous action was successful
@@ -39,6 +39,7 @@ jobs:
         uses: cycjimmy/semantic-release-action@v2.5.0
         id: semantic
         env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
           SEMANTIC_RELEASE_PACKAGE: gh-actions-test
         with:
