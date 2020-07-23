@@ -1,3 +1,11 @@
+## [3.2.5](https://github.com/blockstackpbc/gh-actions-example/compare/v3.2.4...v3.2.5) (2020-07-23)
+
+
+### Bug Fixes
+
+* add back gh_token ([d8fbc4a](https://github.com/blockstackpbc/gh-actions-example/commit/d8fbc4a0fd271aedb41778bfdbbdcbaa08d843c4))
+* try removing some cruft ([66c08de](https://github.com/blockstackpbc/gh-actions-example/commit/66c08de365c2eacad647ae42b790ba2eea1da6f9))
+
 ## [3.2.4](https://github.com/blockstackpbc/gh-actions-example/compare/v3.2.3...v3.2.4) (2020-07-23)
 
 
