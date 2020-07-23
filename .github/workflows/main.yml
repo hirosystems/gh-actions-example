@@ -37,8 +37,8 @@ jobs:
         uses: cycjimmy/semantic-release-action@v2.5.0
         id: semantic
         env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GH_ACTIONS_TOKEN }}
+          GH_TOKEN: ${{ secrets.GH_ACTIONS_TOKEN }}
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
           SEMANTIC_RELEASE_PACKAGE: gh-actions-test
           GIT_AUTHOR_NAME: blockstack-devops
