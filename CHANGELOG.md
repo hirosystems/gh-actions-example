@@ -1,3 +1,16 @@
+# [3.3.0](https://github.com/blockstackpbc/gh-actions-example/compare/v3.2.14...v3.3.0) (2020-07-23)
+
+
+### Bug Fixes
+
+* update workflow syntax ([a71c710](https://github.com/blockstackpbc/gh-actions-example/commit/a71c7104f6ce4cfd4ffc96fd5740f1330d77d102))
+* update workflow syntax ([b7f3f9b](https://github.com/blockstackpbc/gh-actions-example/commit/b7f3f9bc7495c0908649c6ff32b1c7161f0beb54))
+
+
+### Features
+
+* rename things, use vars ([2207d83](https://github.com/blockstackpbc/gh-actions-example/commit/2207d83fbeb8b77b453cded83f8fa03790874f38))
+
 ## [3.2.14](https://github.com/blockstackpbc/gh-actions-example/compare/v3.2.13...v3.2.14) (2020-07-23)
 
 
