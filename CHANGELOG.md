@@ -1,3 +1,11 @@
+## [3.2.14](https://github.com/blockstackpbc/gh-actions-example/compare/v3.2.13...v3.2.14) (2020-07-23)
+
+
+### Bug Fixes
+
+* adding name back ([2b59e3d](https://github.com/blockstackpbc/gh-actions-example/commit/2b59e3d6f70915e28e12eadba8f0c728f2743c51))
+* test name change ([2afc8f6](https://github.com/blockstackpbc/gh-actions-example/commit/2afc8f6e7874dd3da543715b1bcf4e8a122080b4))
+
 ## [3.2.13](https://github.com/blockstackpbc/gh-actions-example/compare/v3.2.12...v3.2.13) (2020-07-23)
 
 
