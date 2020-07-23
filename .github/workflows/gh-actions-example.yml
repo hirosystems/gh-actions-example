@@ -1,9 +1,10 @@
-name: main
+# CHANGE THIS -- This is the name of the workflow and should reflect the name of the repo or Docker image being built
+name: gh-actions-example
 
 # Define any environment vars we want to use throughout the build process
 # Secret variables can be defined under the Github project's "Settings", which can be referrenced throughout this file as well
 env:
-  IMAGE_NAME: blockstack/gh-actions-test
+  IMAGE_NAME: blockstack/${{ env.GITHUB_WORKFLOW }}
   DOCKER_REGISTRY: quay.io
 
 # Run on pushes and PRs to any branch
@@ -49,7 +50,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-          SEMANTIC_RELEASE_PACKAGE: gh-actions-test
+          SEMANTIC_RELEASE_PACKAGE: ${{ env.GITHUB_WORKFLOW }}
         with:
           # These plugins aren't packaged with semantic-release by default. So specify them here to ensure they get installed during this GH Action
           extra_plugins: |
