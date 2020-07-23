@@ -1,3 +1,10 @@
+## [3.2.9](https://github.com/blockstackpbc/gh-actions-example/compare/v3.2.8...v3.2.9) (2020-07-23)
+
+
+### Bug Fixes
+
+* try skipping ci ([a994d7a](https://github.com/blockstackpbc/gh-actions-example/commit/a994d7adc28b7933ced0efc2298cb5adcf79cbfc))
+
 ## [3.2.8](https://github.com/blockstackpbc/gh-actions-example/compare/v3.2.7...v3.2.8) (2020-07-23)
 
 
