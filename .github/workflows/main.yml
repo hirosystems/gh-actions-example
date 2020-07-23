@@ -9,8 +9,8 @@ env:
 # Run on pushes and PRs to any branch
 on:
   push:
-    tags-ignore:
-      - '*'
+    # tags-ignore:
+    #   - '*'
     paths-ignore:
       - '**/CHANGELOG.md'
   pull_request:
