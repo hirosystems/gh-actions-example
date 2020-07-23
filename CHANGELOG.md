@@ -1,3 +1,17 @@
+## [3.2.1](https://github.com/blockstackpbc/gh-actions-example/compare/v3.2.0...v3.2.1) (2020-07-23)
+
+
+### Bug Fixes
+
+* another ([81282ac](https://github.com/blockstackpbc/gh-actions-example/commit/81282acd5e7a1ddff74941035e33ab313e471591))
+* last one ([3667583](https://github.com/blockstackpbc/gh-actions-example/commit/3667583d167b71efac0bda8a49626146ca59cc6f))
+* one more test ([203970a](https://github.com/blockstackpbc/gh-actions-example/commit/203970a8d6989d1ea168736cc63755a47a1bf551))
+* testing protected branches ([b49e6df](https://github.com/blockstackpbc/gh-actions-example/commit/b49e6df2b2a4ffa8998ad9e837ade4f1a69008f7))
+* try GH_TOKEN ([4ee46d3](https://github.com/blockstackpbc/gh-actions-example/commit/4ee46d334876d705fb6b2ca0d5b4fa2a29966120))
+* try personal GH_TOKEN ([aa7a5d8](https://github.com/blockstackpbc/gh-actions-example/commit/aa7a5d8deb0cbf429ffe2167ccec96f76766e1b6))
+* try wide scoped personal GH_TOKEN ([3ae386d](https://github.com/blockstackpbc/gh-actions-example/commit/3ae386dd272ef7a4240171ce8dcb05aa352441c1))
+* update gh token ([1a86cfe](https://github.com/blockstackpbc/gh-actions-example/commit/1a86cfe40cb065fdfe8d5fbba4e846cc32ae7fdc))
+
 # [3.2.0](https://github.com/blockstackpbc/gh-actions-example/compare/v3.1.1...v3.2.0) (2020-07-22)
 
 
