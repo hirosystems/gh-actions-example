@@ -49,7 +49,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-          SEMANTIC_RELEASE_PACKAGE: gh-actions-test
         with:
           # These plugins aren't packaged with semantic-release by default. So specify them here to ensure they get installed during this GH Action
           extra_plugins: |

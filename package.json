@@ -1,4 +1,5 @@
 {
+  "name": "gh-actions-example",
   "devDependencies": {
     "@commitlint/cli": "^9.1.1",
     "@commitlint/config-conventional": "^9.1.1",
