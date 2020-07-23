@@ -1,12 +1,6 @@
 # CHANGE THIS -- This is the name of the workflow and should reflect the name of the repo or Docker image being built
 name: gh-actions-example
 
-# Define any environment vars we want to use throughout the build process
-# Secret variables can be defined under the Github project's "Settings", which can be referrenced throughout this file as well
-env:
-  IMAGE_NAME: blockstack/${{ env.GITHUB_WORKFLOW }}
-  DOCKER_REGISTRY: quay.io
-
 # Run on pushes and PRs to any branch
 on:
   push:
@@ -62,10 +56,10 @@ jobs:
       - name: Build/Tag/Push Image
         uses: docker/build-push-action@v1
         with:
-          repository: ${{ env.IMAGE_NAME }}
+          repository: blockstack/${{ env.GITHUB_WORKFLOW }}
           username: ${{ secrets.QUAY_USERNAME }}
           password: ${{ secrets.QUAY_PASSWORD }}
-          registry: ${{ env.DOCKER_REGISTRY }}
+          registry: quay.io
           tags: ${{ steps.semantic.outputs.new_release_version }}
           tag_with_ref: true
           add_git_labels: true
