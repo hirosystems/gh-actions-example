@@ -1,3 +1,10 @@
+# [3.5.0](https://github.com/blockstackpbc/gh-actions-example/compare/v3.4.0...v3.5.0) (2020-07-27)
+
+
+### Features
+
+* add back some plugins ([4372343](https://github.com/blockstackpbc/gh-actions-example/commit/43723437100b88ef5dbb089d6b3ac9c2a3446c7e))
+
 # [3.3.0](https://github.com/blockstackpbc/gh-actions-example/compare/v3.2.14...v3.3.0) (2020-07-23)
 
 
