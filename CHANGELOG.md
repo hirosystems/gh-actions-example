@@ -1,3 +1,10 @@
+# [3.6.0](https://github.com/blockstackpbc/gh-actions-example/compare/v3.5.0...v3.6.0) (2020-07-27)
+
+
+### Features
+
+* add new sub module to test npm plugin ([aa7ce1d](https://github.com/blockstackpbc/gh-actions-example/commit/aa7ce1d8cd502742db21dece1073e27065986ce1))
+
 # [3.5.0](https://github.com/blockstackpbc/gh-actions-example/compare/v3.4.0...v3.5.0) (2020-07-27)
 
 
