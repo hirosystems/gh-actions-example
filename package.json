@@ -19,6 +19,13 @@
       "@semantic-release/commit-analyzer",
       "@semantic-release/release-notes-generator",
       [
+        "@semantic-release/exec",
+        {
+          "execCwd": "package2",
+          "prepareCmd": "npm install"
+        }
+      ],
+      [
         "@semantic-release/npm",
         {
           "pkgRoot": "./docs"
