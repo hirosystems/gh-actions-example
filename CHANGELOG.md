@@ -1,3 +1,11 @@
+## [3.9.1](https://github.com/blockstackpbc/gh-actions-example/compare/v3.9.0...v3.9.1) (2020-08-13)
+
+
+### Bug Fixes
+
+* add exec cmd ([b22323b](https://github.com/blockstackpbc/gh-actions-example/commit/b22323b274e89896e2f79df226c7b79f9d315f1f))
+* fix gh workflow ([207e2df](https://github.com/blockstackpbc/gh-actions-example/commit/207e2dfaf864909942319a82ed131de6da0aa809))
+
 # [3.9.0](https://github.com/blockstackpbc/gh-actions-example/compare/v3.8.0...v3.9.0) (2020-08-13)
 
 
