@@ -54,6 +54,7 @@ jobs:
             @semantic-release/changelog
             @semantic-release/git
             semantic-release-slack-bot
+            @semantic-release/exec
 
       # Builds the Docker image, tags it with the new semantic version created from the previous action, and publishes it to a registry
       - name: Build/Tag/Push Image
