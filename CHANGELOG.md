@@ -1,3 +1,15 @@
+# [3.8.0](https://github.com/blockstackpbc/gh-actions-example/compare/v3.7.0...v3.8.0) (2020-08-13)
+
+
+### Bug Fixes
+
+* fix package.json ([f88779b](https://github.com/blockstackpbc/gh-actions-example/commit/f88779b3426ce0e3eec1223a8289f4a596156c0f))
+
+
+### Features
+
+* add new package ([33a8927](https://github.com/blockstackpbc/gh-actions-example/commit/33a8927db7dc9ed4f8e6a37a721bb63add3b09c4))
+
 # [3.7.0](https://github.com/blockstackpbc/gh-actions-example/compare/v3.6.0...v3.7.0) (2020-07-27)
 
 
