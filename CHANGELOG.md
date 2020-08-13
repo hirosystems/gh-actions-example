@@ -1,3 +1,10 @@
+# [3.9.0](https://github.com/blockstackpbc/gh-actions-example/compare/v3.8.0...v3.9.0) (2020-08-13)
+
+
+### Features
+
+* test update ([72edbbf](https://github.com/blockstackpbc/gh-actions-example/commit/72edbbf179510b0a4306b5df2de04cb1c8caf205))
+
 # [3.8.0](https://github.com/blockstackpbc/gh-actions-example/compare/v3.7.0...v3.8.0) (2020-08-13)
 
 
