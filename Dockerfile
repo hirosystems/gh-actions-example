@@ -16,6 +16,7 @@ RUN apk add --no-cache --update \
       libssl1.1 \
       libgcc \
       curl \
+      yaml \
       yaml-dev
 
 CMD [ "/bin/sh", "-c", "echo 'hello world'" ]
