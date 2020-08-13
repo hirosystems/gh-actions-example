@@ -12,6 +12,7 @@ on:
       - '**/CHANGELOG.md'
       - '**/package.json'
   pull_request:
+  workflow_dispatch:
 
 jobs:
   build-publish:
