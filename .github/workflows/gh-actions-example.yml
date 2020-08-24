@@ -17,7 +17,7 @@ on:
 jobs:
   notify-start:
     runs-on: ubuntu-latest
-    if: github.event.pull_request.head.repo.full_name == github.repository
+    if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository
     outputs:
       slack_message_id: ${{ steps.slack.outputs.message_id }}
     steps:
@@ -48,7 +48,7 @@ jobs:
       - name: Semantic Release
         uses: cycjimmy/semantic-release-action@v2.5.0
         id: semantic
-        if: always() && github.event.pull_request.head.repo.full_name == github.repository
+        if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN || secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
@@ -81,7 +81,7 @@ jobs:
     needs:
       - notify-start
       - build-publish
-    if: always() && github.event.pull_request.head.repo.full_name == github.repository
+    if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository
     steps:
       # Updates the first Slack message into a SUCCESSful message
       # Only runs if the previous actions were successful
