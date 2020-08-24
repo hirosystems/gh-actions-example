@@ -48,6 +48,7 @@ jobs:
       - name: Semantic Release
         uses: cycjimmy/semantic-release-action@v2.5.0
         id: semantic
+        if: always() && github.event.pull_request.head.repo.full_name == github.repository
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN || secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
