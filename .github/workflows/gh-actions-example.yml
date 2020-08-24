@@ -74,7 +74,7 @@ jobs:
           tag_with_ref: true
           add_git_labels: true
           # Only push if there's a new release on main branch, or if building a non-main branch
-          push: ${{ github.ref != 'refs/heads/master' || steps.semantic.outputs.new_release_version != '' }}
+          push: ${{ (github.ref != 'refs/heads/master' || steps.semantic.outputs.new_release_version != '') && (github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository) }}
 
   notify-end:
     runs-on: ubuntu-latest
