@@ -80,7 +80,7 @@ jobs:
     needs:
       - notify-start
       - build-publish
-    if: always()
+    if: always() && github.event.pull_request.head.repo.full_name == github.repository
     steps:
       # Updates the first Slack message into a SUCCESSful message
       # Only runs if the previous actions were successful
