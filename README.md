@@ -41,6 +41,18 @@ In order to configure a Git repo with automatic semantic versioning, follow the 
     # If you use npm
     npm install --save-dev husky @commitlint/{config-conventional,cli}
     ```
+1. Activate hooks
+    ```bash
+    # If you use yarn
+    yarn husky install
+
+    # If you use npm
+    npx husky install
+    ```
+1. Add hook
+    ```bash
+    npx husky add .husky/commit-msg 'npx --no-install commitlint --edit'
+    ```
 1. Add the following files/dirs to the .gitignore file (unless you want to commit any of them):
     ```bash
     echo -e "node_modules\npackage-lock.json\nyarnlock" >> .gitignore
