@@ -1,3 +1,10 @@
+## [3.9.2](https://github.com/blockstackpbc/gh-actions-example/compare/v3.9.1...v3.9.2) (2021-06-21)
+
+
+### Bug Fixes
+
+* update some outdated procedures ([a029ebd](https://github.com/blockstackpbc/gh-actions-example/commit/a029ebdac091f4d0243f21a9ac91440a3d403915))
+
 ## [3.9.1](https://github.com/blockstackpbc/gh-actions-example/compare/v3.9.0...v3.9.1) (2020-08-13)
 
 
