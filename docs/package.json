@@ -1,12 +1,7 @@
 {
-  "devDependencies": {
-    "@commitlint/cli": "^9.1.1",
-    "@commitlint/config-conventional": "^9.1.1",
-    "husky": "^4.2.5"
-  },
   "name": "@charliec3/gh-actions-example-docs",
   "description": "This repository serves as an example on: * How to configure a workflow which notifies Slack, builds and publishes a Docker image, and automatically versions the repo * How to configure semantic versioning using [semantic-release](https://github.com/semantic-release/semantic-release), [commitlint](https://github.com/conventional-changelog/commitlint), and [husky](https://github.com/typicode/husky)",
-  "version": "1.0.0",
+  "version": "3.10.0-develop.3",
   "main": "index.js",
   "dependencies": {
     "JSONStream": "^1.3.5",

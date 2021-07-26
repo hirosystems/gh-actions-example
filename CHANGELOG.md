@@ -1,3 +1,44 @@
+# [3.10.0-develop.3](https://github.com/blockstackpbc/gh-actions-example/compare/v3.10.0-develop.2...v3.10.0-develop.3) (2021-07-26)
+
+
+### Bug Fixes
+
+* publish ([9f87257](https://github.com/blockstackpbc/gh-actions-example/commit/9f87257763eff9c664acfb86a01f2815479cedbf))
+* release root package ([b73608a](https://github.com/blockstackpbc/gh-actions-example/commit/b73608afd60c5a3bdb69d7b262b9992cd9d851b1))
+
+# [3.10.0-develop.2](https://github.com/blockstackpbc/gh-actions-example/compare/v3.10.0-develop.1...v3.10.0-develop.2) (2021-07-26)
+
+
+### Bug Fixes
+
+* npm publish ([e6cb4c3](https://github.com/blockstackpbc/gh-actions-example/commit/e6cb4c36260cef828ac7c3b833409cc4e74f4992))
+
+# [3.10.0-develop.1](https://github.com/blockstackpbc/gh-actions-example/compare/v3.9.1...v3.10.0-develop.1) (2021-07-26)
+
+
+### Bug Fixes
+
+* update some outdated procedures ([a029ebd](https://github.com/blockstackpbc/gh-actions-example/commit/a029ebdac091f4d0243f21a9ac91440a3d403915))
+
+
+### Features
+
+* updates to info and workflows ([92a2c65](https://github.com/blockstackpbc/gh-actions-example/commit/92a2c65335b8d9e227e50e988e8437cb2ed66d1a))
+
+# [3.10.0-develop.1](https://github.com/blockstackpbc/gh-actions-example/compare/v3.9.1...v3.10.0-develop.1) (2021-07-26)
+
+
+### Bug Fixes
+
+* require build ([1c0a91d](https://github.com/blockstackpbc/gh-actions-example/commit/1c0a91d70ac3075a663c1b6fbdd5c89814078436))
+* update some outdated procedures ([a029ebd](https://github.com/blockstackpbc/gh-actions-example/commit/a029ebdac091f4d0243f21a9ac91440a3d403915))
+* updates to info ([a82aaba](https://github.com/blockstackpbc/gh-actions-example/commit/a82aaba044ff03a482c6e58cb940b70817486ba3))
+
+
+### Features
+
+* new feature ([6452a97](https://github.com/blockstackpbc/gh-actions-example/commit/6452a975603d33669e00c0149b0da609a4abaf0c))
+
 ## [3.9.2](https://github.com/blockstackpbc/gh-actions-example/compare/v3.9.1...v3.9.2) (2021-06-21)
 
 
