@@ -2,7 +2,7 @@
   "devDependencies": {
     "@commitlint/cli": "^12.1.4",
     "@commitlint/config-conventional": "^12.1.4",
-    "husky": "^6.0.0"
+    "husky": "^7.0.1"
   },
   "commitlint": {
     "extends": [
@@ -15,6 +15,13 @@
     }
   },
   "release": {
+    "branches": [
+      "main",
+      {
+        "name": "develop",
+        "prerelease": true
+      }
+    ],
     "plugins": [
       "@semantic-release/commit-analyzer",
       "@semantic-release/release-notes-generator",
@@ -34,12 +41,29 @@
       [
         "@semantic-release/npm",
         {
-          "pkgRoot": "./package2"
+          "pkgRoot": "./package2",
+          "npmPublish": false
         }
       ],
       "@semantic-release/github",
       "@semantic-release/changelog",
-      "@semantic-release/git"
+      [
+        "@semantic-release/git",
+        {
+          "assets": [
+            "CHANGELOG.md",
+            "package.json",
+            "package-lock.json",
+            "yarn.lock",
+            "package2/package.json",
+            "package2/package-lock.json",
+            "package2/yarn.lock",
+            "docs/package.json",
+            "docs/package-lock.json",
+            "docs/yarn.lock"
+          ]
+        }
+      ]
     ]
   },
   "name": "@charliec3/gh-actions-example",

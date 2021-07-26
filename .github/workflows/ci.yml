@@ -1,0 +1,140 @@
+# This workflow can be used as a template for regular CI processes on PRs, as well as releases on merges or pushes to the `main` branch.
+# If your repo uses `master` instead of `main`, do a find/replace for s/main/master/g in this workflow and the repo package.json file
+#
+# Release Process Info: The release process has a special behavior to it that extends the regular CI functionality of this workflow.
+# When committing to or merging into `main`, CI will run against the new commit as it regularly would for any PR. The last step of this
+# workflow will run the `semantic-release` job, which will update and commit necessary files like the CHANGELOG.md, and the package.json
+# if it's an NPM project, tag a new version (incremented according to Conventional Commits), create a GH release, and publish any built
+# NPM packages to npmjs.org.
+#
+# The tag pushed up from the semantic-release step will cause this workflow is run again, however it will now run against the `refs/tags/v1.2.3`
+# git reference instead of the commit SHA of the previous run, and the assets built on this subsequent run will use the updated manifests from the release.
+# This is important if your project is NOT a Node.JS project, and is something else like a Rust project, because the Rust binaries built on the previous
+# run were using the previous tag from the Cargo.toml file. Following the Rust example, this subsequent run will produce Rust binaries that use the updated
+# version in the Cargo.toml file, and are thusly valid release binaries which will be uploaded to the Github Release's page as part of this workflow.
+name: CI
+
+# Run on pushes and PRs to any branch
+on:
+  # Run this workflow on all PRs. PRs from forks of first-time contributors will need to be manually approved before they're able to run
+  pull_request:
+
+  # Run this workflow on certain types of pushes. Details below.
+  push:
+    # Specifying "v*" ensures this workflow will run after the semantic-release job increments the version and pushes up a tag.
+    # As described in the section above, this is an important configuration to build and publish release binaries of non-Node.JS projects.
+    tags:
+      - "v*"
+
+    # Specify files here that semantic-release may update during a release to avoid running this workflow twice after a new release is created
+    # (Once for the files pushed up by semantic-release, once for the new tag pushed up by semantic-release)
+    # This is usually at least the CHANGELOG.md file. NPM projects may see the package.json file version bumped.
+    # Add any other files which will need to be updated during the release process as well, like the Cargo.toml and Cargo.lock for Rust projects
+    paths-ignore:
+      - "**/CHANGELOG.md"
+      - "**/package.json"
+      # - "**/Cargo.toml"
+      # - "**/Cargo.lock"
+
+    # Only run on pushes to these branches. Specifying every branch will result in workflows being ran twice for feature branches and bugfix branches
+    # due to the push and a potential PR being open.
+    branches:
+      - main
+      - develop
+
+  # Nice to have in most situations. Allows someone with write permissions to trigger this workflow manually against any branch
+  workflow_dispatch:
+
+jobs:
+  # Cancels any instances of this workflow already running against the same particular commit or event. The nodes Github uses to run these workflows
+  # are free, but there's a limited quantity. Running too many workflows or jobs for a repo will consume more workers than needed, forcing other repos
+  # in the same org to wait for them to free up.
+  pre_run:
+    name: Cancel previous runs
+    runs-on: ubuntu-latest
+    steps:
+      - name: Cancel Previous Runs
+        uses: styfle/cancel-workflow-action@ad6cb1b847ffb509a69b745b6ee2f1d14dfe14b8
+        with:
+          access_token: ${{ github.token }}
+
+  build:
+    name: Build Docker image
+    runs-on: ubuntu-latest
+    needs: pre_run
+    steps:
+      # Checks out the branch/commit pertaining to the triggered job
+      - name: Checkout repo
+        uses: actions/checkout@v2
+
+      # Generate Docker tags based on commit information, like
+      #  * branch name
+      #  * PR (not needed if not pushing image on PR runs)
+      #  * semantic version on releases
+      - name: Generate Docker tags
+        id: docker_meta
+        uses: docker/metadata-action@v3
+        with:
+          images: ${{ github.repository }}
+          tags: |
+            type=ref,event=branch
+            type=ref,event=pr
+            type=semver,pattern={{version}}
+            type=semver,pattern={{major}}.{{minor}}
+
+      # Log in to Dockerhub so we can push an image
+      - name: Login to Dockerhub
+        uses: docker/login-action@v1
+        # Only log in to push if this is not a PR
+        if: github.event_name != 'pull_request'
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_PASSWORD }}
+
+      # Push the tagged image to Dockerhub
+      - name: Build/Tag/Push Image
+        uses: docker/build-push-action@v2
+        with:
+          # Only push if this is not a PR
+          push: ${{ github.event_name != 'pull_request' }}
+          tags: ${{ steps.docker_meta.outputs.tags }}
+          labels: ${{ steps.docker_meta.outputs.labels }}
+
+  release:
+    name: Release
+    runs-on: ubuntu-latest
+    # Only run on pushes since this workflow is restricted to run on pushes to the `develop` and `main` branches.
+    # We run on the `develop` branch because this repo is configured to create pre-releases, which are tied to the `develop` branch.
+    if: github.event_name == 'push'
+    needs:
+      - build
+    steps:
+      # Checks out the branch/commit pertaining to the triggered job
+      - name: Checkout repo
+        uses: actions/checkout@v2
+        with:
+          # This secret token is required for this job's checkout step because semantic-release may need to push
+          # a tag and commit back to the repo to update the CHANGELOG.md, and any other relevant files.
+          # The default token used in this step does not have enough permissions to push back to the repo.
+          token: ${{ secrets.GH_TOKEN }}
+
+      # This is the step which performs a majority of the release actions. It will scan the commits made since the last tagged release,
+      # looking for conventional commit messages which will trigger a version bump. After making that determination, it will:
+      #  * bump the version accordingly
+      #  * update and commit the CHANGELOG.md, and other relevant files
+      #  * tag the new commit as `vMAJOR.MINOR.PATCH` according to semantic versioning rules
+      #    * If creating a pre-release, the tag will look a little different and include the branch name
+      #  * publish any NPM packages if releasing an Node.JS project
+      #  * Comment on Github issues and pull requests notifying users it's been fixed or released in the new version
+      - name: Semantic Release
+        uses: cycjimmy/semantic-release-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }} # Used for Semantic Release to interact with the GH API
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }} # Only needed if publishing an NPM package
+          SEMANTIC_RELEASE_PACKAGE: ${{ github.event.repository.name }} # Always needed
+        with:
+          # These plugins aren't packaged with semantic-release by default. So specify them here to ensure they get installed during this GH Action
+          extra_plugins: |
+            @semantic-release/changelog
+            @semantic-release/git
+            @semantic-release/exec
