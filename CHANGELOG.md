@@ -1,3 +1,10 @@
+# [3.10.0-develop.2](https://github.com/blockstackpbc/gh-actions-example/compare/v3.10.0-develop.1...v3.10.0-develop.2) (2021-07-26)
+
+
+### Bug Fixes
+
+* npm publish ([e6cb4c3](https://github.com/blockstackpbc/gh-actions-example/commit/e6cb4c36260cef828ac7c3b833409cc4e74f4992))
+
 # [3.10.0-develop.1](https://github.com/blockstackpbc/gh-actions-example/compare/v3.9.1...v3.10.0-develop.1) (2021-07-26)
 
 
