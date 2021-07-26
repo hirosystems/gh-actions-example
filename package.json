@@ -32,11 +32,17 @@
           "prepareCmd": "npm install"
         }
       ],
-      "@semantic-release/npm",
       [
         "@semantic-release/npm",
         {
-          "pkgRoot": "./docs"
+          "npmPublish": true
+        }
+      ],
+      [
+        "@semantic-release/npm",
+        {
+          "pkgRoot": "./docs",
+          "npmPublish": true
         }
       ],
       [
