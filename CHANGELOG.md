@@ -1,3 +1,11 @@
+# [3.10.0-develop.3](https://github.com/blockstackpbc/gh-actions-example/compare/v3.10.0-develop.2...v3.10.0-develop.3) (2021-07-26)
+
+
+### Bug Fixes
+
+* publish ([9f87257](https://github.com/blockstackpbc/gh-actions-example/commit/9f87257763eff9c664acfb86a01f2815479cedbf))
+* release root package ([b73608a](https://github.com/blockstackpbc/gh-actions-example/commit/b73608afd60c5a3bdb69d7b262b9992cd9d851b1))
+
 # [3.10.0-develop.2](https://github.com/blockstackpbc/gh-actions-example/compare/v3.10.0-develop.1...v3.10.0-develop.2) (2021-07-26)
 
 
