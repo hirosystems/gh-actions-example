@@ -1,3 +1,11 @@
+## [3.10.1](https://github.com/blockstackpbc/gh-actions-example/compare/v3.10.0...v3.10.1) (2021-08-02)
+
+
+### Bug Fixes
+
+* adjust commit message ([2e9e0cc](https://github.com/blockstackpbc/gh-actions-example/commit/2e9e0cc8eb2dc0c036b93f6f75ea24d2b2655a84))
+* trigger workflow ([e66c288](https://github.com/blockstackpbc/gh-actions-example/commit/e66c2882f086d41bcb6148281a48e52ebbab5d6e))
+
 # [3.10.0](https://github.com/blockstackpbc/gh-actions-example/compare/v3.9.1...v3.10.0) (2021-07-26)
 
 
