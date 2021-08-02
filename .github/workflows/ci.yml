@@ -32,7 +32,7 @@ on:
     # Add any other files which will need to be updated during the release process as well, like the Cargo.toml and Cargo.lock for Rust projects
     paths-ignore:
       - "**/CHANGELOG.md"
-      - "**/package.json"
+      - "**/package*.json"
       # - "**/Cargo.toml"
       # - "**/Cargo.lock"
 
