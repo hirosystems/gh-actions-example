@@ -24,15 +24,15 @@ on:
     # Specifying "v*" ensures this workflow will run after the semantic-release job increments the version and pushes up a tag.
     # As described in the section above, this is an important configuration to build and publish release binaries of non-Node.JS projects.
     tags:
-      - "v*"
+      - 'v*'
 
     # Specify files here that semantic-release may update during a release to avoid running this workflow twice after a new release is created
     # (Once for the files pushed up by semantic-release, once for the new tag pushed up by semantic-release)
     # This is usually at least the CHANGELOG.md file. NPM projects may see the package.json file version bumped.
     # Add any other files which will need to be updated during the release process as well, like the Cargo.toml and Cargo.lock for Rust projects
     paths-ignore:
-      - "**/CHANGELOG.md"
-      - "**/package*.json"
+      - '**/CHANGELOG.md'
+      - '**/package*.json'
       # - "**/Cargo.toml"
       # - "**/Cargo.lock"
 
